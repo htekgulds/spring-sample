@@ -8,6 +8,7 @@ import tr.gov.tuik.spring.service.UserService;
 import tr.gov.tuik.spring.service.exception.UserAlreadyExistsException;
 
 import javax.inject.Inject;
+import java.util.List;
 
 /**
  * Created by Hasan on 1.6.2015.
@@ -32,5 +33,10 @@ public class UserServiceImpl implements UserService {
                     String.format("There already exists a user with id=%s", user.getId()));
         }
         return repository.save(user);
+    }
+
+    @Override
+    public List<User> getList() {
+        return null;
     }
 }
