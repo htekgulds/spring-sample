@@ -75,6 +75,26 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Hibernate Validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+        <!-- HSQLDB -->
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Guava (Rest için) -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
