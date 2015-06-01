@@ -1,4 +1,4 @@
-package tr.gov.tuik.spring;
+package tr.gov.tuik.spring.controller;
 
 import org.junit.Before;
 import org.junit.Test;

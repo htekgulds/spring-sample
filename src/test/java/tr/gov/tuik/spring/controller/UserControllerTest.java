@@ -1,10 +1,12 @@
-package tr.gov.tuik.spring;
+package tr.gov.tuik.spring.controller;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import tr.gov.tuik.spring.domain.User;
+import tr.gov.tuik.spring.service.UserService;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;

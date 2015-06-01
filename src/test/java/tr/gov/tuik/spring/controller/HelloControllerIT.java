@@ -1,4 +1,4 @@
-package tr.gov.tuik.spring;
+package tr.gov.tuik.spring.controller;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
+import tr.gov.tuik.spring.Application;
 
 import java.net.URL;
 
