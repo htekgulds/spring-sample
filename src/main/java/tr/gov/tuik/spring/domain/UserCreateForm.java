@@ -1,5 +1,6 @@
 package tr.gov.tuik.spring.domain;
 
+import com.google.common.base.Objects;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Size;
@@ -17,9 +18,6 @@ public class UserCreateForm {
     @Size(max = 64)
     private String password1;
     private String password2;
-
-    public UserCreateForm() {
-    }
 
     public String getId() {
         return id;
@@ -43,5 +41,14 @@ public class UserCreateForm {
 
     public void setPassword2(String password2) {
         this.password2 = password2;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("password1", password1)
+                .add("password2", password2)
+                .toString();
     }
 }

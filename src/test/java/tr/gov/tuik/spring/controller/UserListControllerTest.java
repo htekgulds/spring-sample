@@ -37,13 +37,12 @@ public class UserListControllerTest {
     @Test
     public void shouldGetUserListPage() throws Exception {
         List<User> userList = stubServiceToReturnExistingUsers(5);
-        String view = userController.getListUsersView();
-        List<User> returnedUserList = userController.getUserList();
+        ModelAndView view = userController.getListUsersView();
         // verify userService was called once
         verify(userService, times(1)).getList();
-        assertEquals("View name should be right", "user_list", view);
+        assertEquals("View name should be right", "user_list", view.getViewName());
         assertEquals("Model should contain attribute with the list of users coming from the service",
-                userList, returnedUserList);
+                userList, view.getModel().get("users"));
     }
 
     private List<User> stubServiceToReturnExistingUsers(int howMany) {

@@ -1,13 +1,18 @@
 package tr.gov.tuik.spring.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 import tr.gov.tuik.spring.domain.User;
 import tr.gov.tuik.spring.repository.UserRepository;
 import tr.gov.tuik.spring.service.UserService;
 import tr.gov.tuik.spring.service.exception.UserAlreadyExistsException;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -15,8 +20,9 @@ import java.util.List;
  */
 
 @Service
+@Validated
 public class UserServiceImpl implements UserService {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserRepository repository;
 
     @Inject
@@ -26,7 +32,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User save(final User user) {
+    public User save(@NotNull @Valid final User user) {
+        LOGGER.debug("Creating {}", user);
         User existing = repository.findOne(user.getId());
         if (existing != null) {
             throw new UserAlreadyExistsException(
@@ -37,6 +44,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getList() {
-        return null;
+        LOGGER.debug("Retrieving the list of all users");
+        return repository.findAll();
     }
 }

@@ -20,23 +20,23 @@ import static org.mockito.Mockito.when;
  */
 
 @RunWith(MockitoJUnitRunner.class)
-public class UserControllerTest {
+public class UserRestControllerTest {
 
     @Mock
     private UserService userService;
 
-    private UserController userController;
+    private UserRestController userRestController;
 
     @Before
     public void setUp() {
-        userController = new UserController(userService);
+        userRestController = new UserRestController(userService);
     }
 
     @Test
     public void shouldCreateUser() throws Exception {
         final User savedUser = stubServiceToReturnStoredUser();
         final User user = new User();
-        User returnedUser = userController.createUser(user);
+        User returnedUser = userRestController.createUser(user);
         // verify user was passed to UserService
         verify(userService, times(1)).save(user);
         assertEquals("Returned user should come from the service", savedUser, returnedUser);
